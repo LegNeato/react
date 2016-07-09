@@ -21,6 +21,9 @@ ruleTester.run('eslint-rules/warning-and-invariant-args', rule, {
     "warning(true, 'expected %s, got %s', 42, 24);",
     "invariant(true, 'hello, world');",
     "invariant(true, 'expected %s, got %s', 42, 24);",
+    // Templae literals aren't supported in the codebase yet.
+    // "invariant(true, `hello, world`);",
+    // "invariant(true, `expected {1+1}, got {2+2}`);",
   ],
   invalid: [
     {

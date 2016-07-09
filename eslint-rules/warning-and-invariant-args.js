@@ -27,6 +27,11 @@ module.exports = function(context) {
       if (l !== null && r !== null) {
         return l + r;
       }
+    } else if (node.type === 'TemplateLiteral') {
+      // Hacky support for template strings. Does not include expressions.
+      return node.quasis.reduce((a, b) => {
+        return `${a}${b.value.cooked}`;
+      });
     }
     return null;
   }
